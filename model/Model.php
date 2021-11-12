@@ -1,14 +1,16 @@
 <?php
-                      
-
+    /**
+    *
+    */
     class Model{
+// using the function of getting the list of books makes a return to all books
+        public static function getBookList() {
+            include_once 'model/booksArray.php';
+            return $books;  
 
-        public function getBookList() {
-            require_once 'model/booksArray.php';
-            return $books;
         }
-
-        public function getBook($title){
+// using the get one book function shows that each book has its own name (returns one book or the entire list of books for review)
+        public static function getBook($title){
             $allBook = Model::getBookList();
             $i = 0;
             $test = array(false);
@@ -18,9 +20,19 @@
                     return $test;
                 }
                 $i++;
-
             }
             return $test;
         }
-    }
- ?>
+    } 
+    
+    
+    
+
+?>
+
+
+
+
+
+
+    

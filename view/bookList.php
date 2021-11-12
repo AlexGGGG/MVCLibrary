@@ -1,14 +1,16 @@
 <?php
+// Turn on output buffering
     ob_start();
  ?>
  <h2>Список книг</h2>
  <?php
  foreach ($booksList as $bookOne) {
+     // Output one or more strings
      echo '<article>';
      echo '<h3>';
      echo '<a href="book?title='.$bookOne['bookname'].'">'.$bookOne['bookname'].'</a>';
      echo '</h3>';
-     echo '<img src = "public/images/'.$bookOne['image'].'">';
+     echo '<img src = "public/images/'.$bookOne['image'].'">'; 
      echo '<p>Author(s): '.$bookOne['author'].'</p>';
      echo '<p>Price: '.$bookOne['price'].'</p>';
      echo '<p style="padding-top:10px;">';
@@ -20,6 +22,8 @@
  ?>
 
  <?php
+ //Get current buffer contents and delete current output buffer
  $content = ob_get_clean();
  include 'view/templates/layout.php';
-  ?>
+ ?>
+ 
